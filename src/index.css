@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer components {
+    .pseudoBefore {
+        @apply relative z-10 before: absolute before:-z-10 before:content-[''];
+    }
+} */
+
+.cardPseudo {
+    position: relative;
+    /* z-index: 5; */
+}
+
+.cardPseudo::after {
+    content: "";
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    width: 80px;
+    height: 80px;
+    border-radius: 1.5rem 0 1rem 0;
+    z-index: -1;
+    transition: 300ms cubic-bezier(1, 0, 0, 1);
+}
+
+.cardPseudo:hover::after {
+    bottom: -1.5rem;
+    left: -1.5rem;
+}
